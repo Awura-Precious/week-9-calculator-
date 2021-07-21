@@ -1,6 +1,9 @@
 ﻿using System;
 using weeklyTaskLib;
 
+using System.Collections.Generic;
+
+
 
 namespace weeklyTaskConsole
 {
@@ -10,6 +13,7 @@ namespace weeklyTaskConsole
         {
             Console.WriteLine("Please Input Two numbers and operator:");
             System.Console.WriteLine("Operation types: +, -, *,/,^");
+            // Console.WriteLine("Do you wish to view history");
 
 
 
@@ -21,18 +25,13 @@ namespace weeklyTaskConsole
                 {
                     FirstNumber=System.Convert.ToDouble(System.Console.ReadLine()),
                     SecondNumber = System.Convert.ToDouble(System.Console.ReadLine()),
-                    
+                    // viewResults =System.Console.ReadLine(),
                     Operation=System.Console.ReadLine(),
                 };
+
                 
                 //saving data in a list 
-                // List<Calculator> history = new List<Calculator>();
-                // history.Add(values);
-
-                // foreach (var data in history)
-                // {
-                //     Console.WriteLine(data);
-                // }
+                List<Calculator> history = new List<Calculator>();
 
 
                 //checking for the type of operator
@@ -58,12 +57,20 @@ namespace weeklyTaskConsole
                     System.Console.WriteLine(values.Subtraction(values.FirstNumber,values.SecondNumber));
                 }
 
-
-
                 else
                 {
                     Console.WriteLine("please enter the right Operation eg: ^ ");
                 }
+                
+            
+                history.Add(values);
+
+                foreach (var data in history)
+                {
+                    Console.WriteLine(data);
+                }
+
+            
             }
             catch (FormatException)
             {
@@ -76,6 +83,9 @@ namespace weeklyTaskConsole
                 
                 Console.WriteLine("follows all instructions  ");
             }
+
+
+
 
 
         }
